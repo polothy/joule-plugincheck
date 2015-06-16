@@ -16,10 +16,12 @@
  * along with the Joule PLugin Code Checker suite.
  * If not, see <http://www.gnu.org/licenses/>
  *
- * @author Corey Wallis <corey.wallis@blackboard.com>
- * @copyright Blackboard Inc. 2015
- * @license GPL-3.0+
- * @version 1.0
+ * @category  PHP
+ * @package   JoulePluginCheck
+ * @author    Corey Wallis <corey.wallis@blackboard.com>
+ * @copyright 2015 Blackboard Inc.
+ * @license   https://www.gnu.org/copyleft/gpl.html GPLv3
+ * @link      https://github.com/techxplorer/joule-plugincheck
  */
 
 namespace Joule\Utils;
