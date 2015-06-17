@@ -25,8 +25,9 @@ To check Moodle plugin code execute the [PHP_CodeSniffer][phpc] application like
 `vendor/bin/phpcs --standard=JoulePluginCheck {full/path/to/the/plugin}`
 
 Any issues found by the sniffs that are part of the standard will output to the terminal.
+
 ## Individual Sniffs ##
-More information related to the Sniffs provided by the standards is availabe in the [JoulePluginCheck.md file](JoulePluginCheck.md)
+More information related to the Sniffs provided by the standards is availabe in the [JoulePluginCheck.md file](JoulePluginCheck.md).
 
 ## Updating the List of Deprecated Functions ##
 The list of deprecated functions can be updated using the following following command:
@@ -53,6 +54,12 @@ To run the unit tests associated with the included sniffs, it is necessary to:
 
 You need to replace `{full/path/to/the/standard}` with the full path to the `JoulePluginCheck` directory that is part of this repository.
 This also assumes that phpunit is available in your path.
+
+## Updating the Documentation ##
+
+To update the documentation on the standard, available in the [JoulePluginCheck.md file](JoulePluginCheck.md) file run the following command.
+
+`vendor/bin/phpcs --standard=JoulePluginCheck --generator=markdown > JoulePluginCheck.md`
 
 ## Dependencies ##
 These tools would not be possible without following libraries, installed using [Composer][c]:
