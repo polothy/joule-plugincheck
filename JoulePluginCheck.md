@@ -16,6 +16,9 @@ In a multi-node environment Moodle plugin code cannot create a temporary file, a
 Code that access files in the {{$CFG-&gt;dataroot}} and {{$CFG-&gt;tempdir}} directories must be checked to ensure it is not
     creating or accessing files that it should not. Additionally the code should not be creating files and expecting them to
     be available on subsequent requests.
+## Disallow Multiple Namespace Declarations
+The Moodle Style Guide prohibits more than one namespace declaration per file.
+    This sniff enforces )that rule. More information is available in the [style guide](https://docs.moodle.org/dev/Coding_style#Namespaces).
 ## Disallow Direct Access to Global Request Variables
 Moodle provide core functionality to clean parameters. Not using these functions can be a serious security concern. Therefore code
     cannot access the global request variables directly.
@@ -69,4 +72,4 @@ Suppressing Errors is not allowed.
 </td>
    </tr>
   </table>
-Documentation generated on Wed, 17 Jun 2015 15:59:59 +0930 by [PHP_CodeSniffer 2.3.2](https://github.com/squizlabs/PHP_CodeSniffer)
+Documentation generated on Wed, 17 Jun 2015 16:32:41 +0930 by [PHP_CodeSniffer 2.3.2](https://github.com/squizlabs/PHP_CodeSniffer)
