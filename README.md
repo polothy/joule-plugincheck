@@ -26,26 +26,7 @@ To check Moodle plugin code execute the [PHP_CodeSniffer][phpc] application like
 
 Any issues found by the sniffs that are part of the standard will output to the terminal.
 ## Individual Sniffs ##
-The JoulePluginCheck standard is compromised of standard and custom sniffs. The standard sniffs are:
-
-1. Generic.Files.ByteOrderMark
-2. Generic.Files.LineEndings
-3. Generic.PHP.DeprecatedFunctions
-4. Generic.PHP.DisallowShortOpenTag
-5. Generic.PHP.NoSilencedErrors
-6. Squiz.PHP.DiscouragedFunctions
-7. Squiz.PHP.Eval
-
-Check the [PHP_CodeSniffer][phpc] documentation and code for details on what each of these sniffs does.
-
-The following is a list of custom sniffs included in this standard:
-
-1. Components.DisallowJquery - Check for code that manually included jQuery, rather than using the bundled version in Moodle
-2. Constants.DisallowParamConstants - Check for code that uses deprecated PARAM_* constants used for parameter cleaning.
-3. Functions.DisallowCurlFunctions - Check for code that uses cURL directly, rather than using the curl class in Moodle
-4. Functions.DisallowDeprecatedFunctions - Find code that uses deprecated Moodle functions
-5. Functions.DisallowFilesystemFunctions - Find functions that interact with the file system that can cause issues in a multi web node environment
-6. Variables.DisallowRequestVariables - Find code that accesses the global request variables
+More information related to the Sniffs provided by the standards is availabe in the [JoulePluginCheck.md file](JoulePluginCheck.md)
 
 ## Updating the List of Deprecated Functions ##
 The list of deprecated functions can be updated using the following following command:
@@ -54,7 +35,7 @@ The list of deprecated functions can be updated using the following following co
 
 By default the JSON file will be output to the same location as that used by the Functions.DisallowDeprecatedFunctions sniff listed above.
 
-## Running Uni Tests ##
+## Running Unit Tests ##
 There are two types of unit tests, as outlined below:
 
 ### The Included Scripts ###
