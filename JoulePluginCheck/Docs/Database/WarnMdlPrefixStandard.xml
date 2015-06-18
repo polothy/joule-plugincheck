@@ -31,4 +31,16 @@
     will be minimal.
     ]]>
   </standard>
+  <code_comparison>
+      <code title="Valid: A SQL query without mdl_ prefix.">
+          <![CDATA[
+          $sql = 'SELECT * FROM {user} WHERE id = ?';
+          ]]>
+      </code>
+      <code title="Invalid: A SQL query with the mdl_ prefix.">
+          <![CDATA[
+          $sql = 'SELECT * FROM mdl_user WHERE id = ?';
+          ]]>
+      </code>
+  </code_comparison>
 </documentation>

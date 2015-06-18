@@ -7,6 +7,24 @@ The PARAM_ constants within Moodle are used for cleaning parameters. Deprecated 
 Using the hard coded `mdl_` prefix in SQL queries can cause undesired results. This sniff looks for the
     use of the prefix in strings. As such some false positives may occur, however it is expected that these
     will be minimal.
+  <table>
+   <tr>
+    <th>Valid: A SQL query without mdl_ prefix.</th>
+    <th>Invalid: A SQL query with the mdl_ prefix.</th>
+   </tr>
+   <tr>
+<td>
+
+    $sql = 'SELECT * FROM {user} WHERE id = ?';
+
+</td>
+<td>
+
+    $sql = 'SELECT * FROM mdl_user WHERE id = ?';
+
+</td>
+   </tr>
+  </table>
 ## Warn About Raw SQL Functions
 Moodle provides a number of helper functions for accing the database, including some functions that allow
     the use of raw SQL. This can be problematic if the SQL is complext, inefficient, or includes parameters
@@ -80,4 +98,4 @@ Suppressing Errors is not allowed.
 </td>
    </tr>
   </table>
-Documentation generated on Thu, 18 Jun 2015 11:49:33 +0930 by [PHP_CodeSniffer 2.3.2](https://github.com/squizlabs/PHP_CodeSniffer)
+Documentation generated on Thu, 18 Jun 2015 11:59:21 +0930 by [PHP_CodeSniffer 2.3.2](https://github.com/squizlabs/PHP_CodeSniffer)
