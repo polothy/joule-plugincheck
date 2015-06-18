@@ -40,6 +40,8 @@
 class JoulePluginCheck_Sniffs_Database_WarnSqlFunctionsSniff
     implements PHP_CodeSniffer_Sniff
 {
+
+
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -47,9 +49,7 @@ class JoulePluginCheck_Sniffs_Database_WarnSqlFunctionsSniff
      */
     public function register()
     {
-        return array(
-                T_VARIABLE,
-               );
+        return array(T_VARIABLE);
 
     }//end register()
 
@@ -87,12 +87,12 @@ class JoulePluginCheck_Sniffs_Database_WarnSqlFunctionsSniff
         // Add a warning for functions that take raw sql.
         $function = $tokens[$functionPtr]['content'];
 
-        if (strrpos($function, '_sql') + 4 === strlen($function)) {
+        if ((strrpos($function, '_sql') + 4) === strlen($function)) {
             $this->_addWarning($function, $phpcsFile, $stackPtr);
             return;
         }
 
-        if (strrpos($function, '_sql_menu') + 9 === strlen($function)) {
+        if ((strrpos($function, '_sql_menu') + 9) === strlen($function)) {
             $this->_addWarning($function, $phpcsFile, $stackPtr);
             return;
         }
@@ -101,6 +101,7 @@ class JoulePluginCheck_Sniffs_Database_WarnSqlFunctionsSniff
             $this->_addWarning($function, $phpcsFile, $stackPtr);
             return;
         }
+
     }//end process()
 
 
@@ -115,12 +116,13 @@ class JoulePluginCheck_Sniffs_Database_WarnSqlFunctionsSniff
      */
     private function _addWarning($function, $phpcsFile, $stackPtr)
     {
-        $type  = 'SqlFunctionUsed';
-        $error = 'Use of the %s database function found. Check the SQL for parameter injection / complexity.';
-        $data  = array($function);
+        $type   = 'SqlFunctionUsed';
+        $error  = 'Use of the %s database function found. ';
+        $error .= 'Check the SQL for parameter injection / complexity.';
+        $data   = array($function);
         $phpcsFile->addWarning($error, $stackPtr, $type, $data);
 
-    }//end _addError()
+    }//end _addWarning()
 
 
 }//end class

@@ -48,6 +48,7 @@ class JoulePluginCheck_Sniffs_Style_DisallowMultipleNamespacesSniff
      */
     private $_files;
 
+
     /**
      * Constructor for this class
      */
@@ -55,7 +56,8 @@ class JoulePluginCheck_Sniffs_Style_DisallowMultipleNamespacesSniff
     {
         $this->_files = array();
 
-    }//end construct()
+    }//end __construct()
+
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -64,9 +66,7 @@ class JoulePluginCheck_Sniffs_Style_DisallowMultipleNamespacesSniff
      */
     public function register()
     {
-        return array(
-                T_NAMESPACE,
-               );
+        return array(T_NAMESPACE);
 
     }//end register()
 
@@ -84,7 +84,7 @@ class JoulePluginCheck_Sniffs_Style_DisallowMultipleNamespacesSniff
     {
         $filename = md5($phpcsFile->getFilename());
 
-        if (isset($this->_files[$filename])) {
+        if (isset($this->_files[$filename]) === true) {
             // The file declares a namespace twice.
             $this->_addError($phpcsFile, $stackPtr);
         } else {
@@ -97,7 +97,6 @@ class JoulePluginCheck_Sniffs_Style_DisallowMultipleNamespacesSniff
     /**
      * Add an error for the found path
      *
-     * @param string               $varname   The name of the variable found
      * @param PHP_CodeSniffer_File $phpcsFile The file being scanned
      * @param int                  $stackPtr  The pointer to the element in the stack
      *

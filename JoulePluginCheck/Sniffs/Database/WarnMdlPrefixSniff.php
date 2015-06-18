@@ -42,6 +42,8 @@
 class JoulePluginCheck_Sniffs_Database_WarnMdlPrefixSniff
     implements PHP_CodeSniffer_Sniff
 {
+
+
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -49,9 +51,7 @@ class JoulePluginCheck_Sniffs_Database_WarnMdlPrefixSniff
      */
     public function register()
     {
-        return array(
-                T_CONSTANT_ENCAPSED_STRING,
-               );
+        return array(T_CONSTANT_ENCAPSED_STRING);
 
     }//end register()
 
@@ -75,6 +75,7 @@ class JoulePluginCheck_Sniffs_Database_WarnMdlPrefixSniff
             $this->_addWarning('', $phpcsFile, $stackPtr);
             return;
         }
+
     }//end process()
 
 
@@ -94,7 +95,7 @@ class JoulePluginCheck_Sniffs_Database_WarnMdlPrefixSniff
         $data  = array($content);
         $phpcsFile->addWarning($error, $stackPtr, $type, $data);
 
-    }//end _addError()
+    }//end _addWarning()
 
 
 }//end class
