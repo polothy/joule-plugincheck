@@ -3,6 +3,10 @@
 Including jQuery and associated libraries manually can cause issues. The versions bundled with Moodle should be used wherever possible.
 ## Disallow Deprecated PARAM_ Constants
 The PARAM_ constants within Moodle are used for cleaning parameters. Deprecated constants should not be used.
+## Warn About Raw SQL Functions
+Moodle provides a number of helper functions for accing the database, including some functions that allow
+    the use of raw SQL. This can be problematic if the SQL is complext, inefficient, or includes parameters
+    correctly. For this reason, this sniff warns about the use of these functions for further investigation.
 ## Disallow the use of cURL
 Moodle comes with its own classes for accessing resources via cURL. These should be used in preference to using cURL directly, as it allows optimisations
     to be implemented in one place only. For example limiting timeouts to meet page generation time (PGT) goals, or accessing resources via proxy servers.
@@ -72,4 +76,4 @@ Suppressing Errors is not allowed.
 </td>
    </tr>
   </table>
-Documentation generated on Wed, 17 Jun 2015 16:32:41 +0930 by [PHP_CodeSniffer 2.3.2](https://github.com/squizlabs/PHP_CodeSniffer)
+Documentation generated on Thu, 18 Jun 2015 10:39:10 +0930 by [PHP_CodeSniffer 2.3.2](https://github.com/squizlabs/PHP_CodeSniffer)

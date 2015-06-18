@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  /**
+   * This file is part of the Joule Plugin Code Checker suite.
+   *
+   * Joule Plugin Code Checker suite is free software: you can redistribute
+   * it and/or modify it under the terms of the GNU General Public License as
+   * published by the Free Software Foundation, either version 3 of the
+   * License, or (at your option) any later version.
+   *
+   * Joule Plugin Code Checker suite is distributed in the hope that it will
+   * be useful, but WITHOUT ANY WARRANTY; without even the implied
+   * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+   * See the GNU General Public License for more details.
+   *
+   * You should have received a copy of the GNU General Public License
+   * along with the Joule PLugin Code Checker suite.
+   * If not, see <http://www.gnu.org/licenses/>
+   *
+   * @author    Corey Wallis <corey.wallis@blackboard.com>
+   * @copyright 2015 Blackboard Inc.
+   * @license   https://www.gnu.org/copyleft/gpl.html GPLv3
+   * @link      https://github.com/techxplorer/joule-plugincheck
+   */
+-->
+<documentation title="Warn About Raw SQL Functions">
+  <standard>
+    <![CDATA[
+    Moodle provides a number of helper functions for accing the database, including some functions that allow
+    the use of raw SQL. This can be problematic if the SQL is complext, inefficient, or includes parameters
+    correctly. For this reason, this sniff warns about the use of these functions for further investigation.
+    ]]>
+  </standard>
+</documentation>
