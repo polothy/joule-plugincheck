@@ -27,7 +27,7 @@
  */
 
 /**
- * A unit test for the DisallowRequestVariablesSniff
+ * A unit test for the WarnSqlFunctionsSniff
  *
  * @category  PHP
  * @package   JoulePluginCheck
