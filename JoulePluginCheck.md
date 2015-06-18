@@ -3,6 +3,10 @@
 Including jQuery and associated libraries manually can cause issues. The versions bundled with Moodle should be used wherever possible.
 ## Disallow Deprecated PARAM_ Constants
 The PARAM_ constants within Moodle are used for cleaning parameters. Deprecated constants should not be used.
+## Warn About mdl_ prefix in SQL Queries
+Using the hard coded `mdl_` prefix in SQL queries can cause undesired results. This sniff looks for the
+    use of the prefix in strings. As such some false positives may occur, however it is expected that these
+    will be minimal.
 ## Warn About Raw SQL Functions
 Moodle provides a number of helper functions for accing the database, including some functions that allow
     the use of raw SQL. This can be problematic if the SQL is complext, inefficient, or includes parameters
@@ -76,4 +80,4 @@ Suppressing Errors is not allowed.
 </td>
    </tr>
   </table>
-Documentation generated on Thu, 18 Jun 2015 10:39:10 +0930 by [PHP_CodeSniffer 2.3.2](https://github.com/squizlabs/PHP_CodeSniffer)
+Documentation generated on Thu, 18 Jun 2015 11:49:33 +0930 by [PHP_CodeSniffer 2.3.2](https://github.com/squizlabs/PHP_CodeSniffer)
