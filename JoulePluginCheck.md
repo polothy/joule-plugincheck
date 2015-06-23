@@ -44,7 +44,12 @@ Code that access files in the {{$CFG-&gt;dataroot}} and {{$CFG-&gt;tempdir}} dir
     be available on subsequent requests.
 ## Disallow Multiple Namespace Declarations
 The Moodle Style Guide prohibits more than one namespace declaration per file.
-    This sniff enforces )that rule. More information is available in the [style guide](https://docs.moodle.org/dev/Coding_style#Namespaces).
+    This sniff enforces that rule. More information is available in the [Moodle style guide](https://docs.moodle.org/dev/Coding_style#Namespaces).
+## Warn about PHP close tag at end of file
+If the PHP close tag '?&gt;' is detected at the end of a file, a warning is raised.
+    If the PHP close tag is detected at the end of a file, and there is whitespace after it, an error is raised.
+
+    This is because the PHP close tag at the end of the file can produce underisable output.
 ## Disallow Direct Access to Global Request Variables
 Moodle provide core functionality to clean parameters. Not using these functions can be a serious security concern. Therefore code
     cannot access the global request variables directly.
@@ -98,4 +103,4 @@ Suppressing Errors is not allowed.
 </td>
    </tr>
   </table>
-Documentation generated on Thu, 18 Jun 2015 11:59:21 +0930 by [PHP_CodeSniffer 2.3.2](https://github.com/squizlabs/PHP_CodeSniffer)
+Documentation generated on Tue, 23 Jun 2015 16:22:24 +0930 by [PHP_CodeSniffer 2.3.2](https://github.com/squizlabs/PHP_CodeSniffer)

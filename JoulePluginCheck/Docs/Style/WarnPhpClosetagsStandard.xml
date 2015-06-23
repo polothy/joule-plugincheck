@@ -23,11 +23,13 @@
    * @link      https://github.com/techxplorer/joule-plugincheck
    */
 -->
-<documentation title="Disallow Multiple Namespace Declarations">
+<documentation title="Warn about PHP close tag at end of file">
   <standard>
     <![CDATA[
-    The Moodle Style Guide prohibits more than one namespace declaration per file.
-    This sniff enforces that rule. More information is available in the [Moodle style guide](https://docs.moodle.org/dev/Coding_style#Namespaces).
+    If the PHP close tag '?>' is detected at the end of a file, a warning is raised.
+    If the PHP close tag is detected at the end of a file, and there is whitespace after it, an error is raised.
+
+    This is because the PHP close tag at the end of the file can produce underisable output.
     ]]>
   </standard>
 </documentation>
