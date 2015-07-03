@@ -45,6 +45,55 @@ Code that access files in the {{$CFG-&gt;dataroot}} and {{$CFG-&gt;tempdir}} dir
 ## Disallow Multiple Namespace Declarations
 The Moodle Style Guide prohibits more than one namespace declaration per file.
     This sniff enforces that rule. More information is available in the [Moodle style guide](https://docs.moodle.org/dev/Coding_style#Namespaces).
+## Warn about classes instantiation without namespaces
+Warn about attempts to instantiate classes that require namespaces.
+  <table>
+   <tr>
+    <th>Valid: Instantiation with namespaces</th>
+    <th>Invalid: Instantiation without namespaces</th>
+   </tr>
+   <tr>
+<td>
+
+    namespace pies;
+    
+    use \pies\plates\Wedgwood;
+    use \pies\cutlery\Spoon as Spork;
+    
+    class apple {
+    
+        protected $createdon;
+        protected $plate;
+        protexted $cutlery;
+    
+        function __construct(){
+             $this->createdon = new DateTime();
+             $this->plate = new Wedgwood();
+             $this->cutlery = new Spork();
+        }
+    }
+
+</td>
+<td>
+
+    namespace pies;
+    
+    class apple {
+    
+        protected $createdon;
+        protected $plate;
+        protexted $cutlery;
+    
+        function __construct(){
+             $this->createdon = new DateTime(); // <-- this should be new \DateTime();
+             $this->plate = new Wedgwood();
+             $this->cutlery = new Spork();
+        }
+    }
+
+</td>
+   </tr>
+  </table>
 ## Warn about PHP close tag at end of file
 If the PHP close tag '?&gt;' is detected at the end of a file, a warning is raised.
     If the PHP close tag is detected at the end of a file, and there is whitespace after it, an error is raised.
@@ -103,4 +152,4 @@ Suppressing Errors is not allowed.
 </td>
    </tr>
   </table>
-Documentation generated on Tue, 23 Jun 2015 16:22:24 +0930 by [PHP_CodeSniffer 2.3.2](https://github.com/squizlabs/PHP_CodeSniffer)
+Documentation generated on Fri, 03 Jul 2015 15:40:36 +0930 by [PHP_CodeSniffer 2.3.3](https://github.com/squizlabs/PHP_CodeSniffer)
