@@ -26,10 +26,10 @@
 <documentation title="Warn about PHP close tag at end of file">
   <standard>
     <![CDATA[
-    If the PHP close tag '?>' is detected at the end of a file, a warning is raised.
-    If the PHP close tag is detected at the end of a file, and there is whitespace after it, an error is raised.
+If the PHP close tag '?>' is detected at the end of a file, a warning is raised.
+If the PHP close tag is detected at the end of a file, and there is whitespace after it, an error is raised.
 
-    This is because the PHP close tag at the end of the file can produce underisable output.
+This is because the PHP close tag at the end of the file can produce undesirable output.
     ]]>
   </standard>
 </documentation>
