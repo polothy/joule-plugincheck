@@ -54,6 +54,7 @@ class JoulePluginCheck_Sniffs_Style_WarnClassesNonamespaceSniff
      */
     private $_usedClasses = array();
 
+
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -62,10 +63,10 @@ class JoulePluginCheck_Sniffs_Style_WarnClassesNonamespaceSniff
     public function register()
     {
         return array(
-            T_NAMESPACE,
-            T_USE,
-            T_NEW,
-        );
+                T_NAMESPACE,
+                T_USE,
+                T_NEW,
+               );
 
     }//end register()
 
@@ -97,7 +98,7 @@ class JoulePluginCheck_Sniffs_Style_WarnClassesNonamespaceSniff
         // Maintain a list of classes explicitly used.
         if ($tokens[$stackPtr]['code'] === T_USE) {
             $lineEnd = $phpcsFile->findNext(T_SEMICOLON, ($stackPtr + 1));
-            $line = '';
+            $line    = '';
 
             for ($i = $stackPtr; $i <= $lineEnd; $i++) {
                 $line .= $tokens[$i]['content'];
@@ -117,7 +118,7 @@ class JoulePluginCheck_Sniffs_Style_WarnClassesNonamespaceSniff
             $this->_usedClasses[$className] = $line;
 
             return;
-        }
+        }//end if
 
         // Find the name of the class.
         $classPtr = $phpcsFile->findNext(
@@ -131,7 +132,7 @@ class JoulePluginCheck_Sniffs_Style_WarnClassesNonamespaceSniff
 
         $className = $tokens[$classPtr]['content'];
 
-        if (isset($this->_usedClasses[$className])) {
+        if (isset($this->_usedClasses[$className]) === true) {
             return;
         }
 
@@ -153,10 +154,10 @@ class JoulePluginCheck_Sniffs_Style_WarnClassesNonamespaceSniff
      */
     private function _addWarning($className, $phpcsFile, $stackPtr)
     {
-        $type  = 'NewClassWithoutBackslash';
-        $error =  'The instantiation of the class %s is likely ';
+        $type   = 'NewClassWithoutBackslash';
+        $error  = 'The instantiation of the class %s is likely ';
         $error .= 'missing a namespace prefix.';
-        $data  = array($className);
+        $data   = array($className);
         $phpcsFile->addWarning($error, $stackPtr, $type, $data);
 
     }//end _addWarning()
