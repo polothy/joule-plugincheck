@@ -66,7 +66,7 @@ class JoulePluginCheck_Sniffs_Functions_DisallowDeprecatedFunctionsSniff
         $functions = json_decode($json);
 
         if (is_array($functions) === false) {
-            throw new \RuntimeException('No deprecated function names found');
+            throw new \RuntimeException('No deprecated function names found.');
         }
 
         // Prepare the list of functions for use by parent class.
