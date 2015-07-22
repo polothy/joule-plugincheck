@@ -1,0 +1,14 @@
+[
+    "exec",
+    "passthru",
+    "system",
+    "shell_exec",
+    "popen",
+    "proc_open",
+    "pcntl_exec",
+    "eval",
+    "assert",
+    "create_function",
+    "call_user_func",
+    "call_user_func_array"
+]
