@@ -94,11 +94,6 @@ Warn about attempts to instantiate classes that require namespaces.
 </td>
    </tr>
   </table>
-## Warn about PHP close tag at end of file
-If the PHP close tag '?&gt;' is detected at the end of a file, a warning is raised.
-If the PHP close tag is detected at the end of a file, and there is whitespace after it, an error is raised.
-
-This is because the PHP close tag at the end of the file can produce underisable output.
 ## Disallow Direct Access to Global Request Variables
 Moodle provide core functionality to clean parameters. Not using these functions can be a serious security concern. Therefore code
     cannot access the global request variables directly.
@@ -152,4 +147,27 @@ Suppressing Errors is not allowed.
 </td>
    </tr>
   </table>
-Documentation generated on Fri, 03 Jul 2015 15:50:16 +0930 by [PHP_CodeSniffer 2.3.3](https://github.com/squizlabs/PHP_CodeSniffer)
+## Closing PHP Tags
+Files should not have closing php tags.
+  <table>
+   <tr>
+    <th>Valid: No closing tag at the end of the file.</th>
+    <th>Invalid: A closing php tag is included at the end of the file.</th>
+   </tr>
+   <tr>
+<td>
+
+    <?php
+    $var = 1;
+
+</td>
+<td>
+
+    <?php
+    $var = 1;
+    ?>
+
+</td>
+   </tr>
+  </table>
+Documentation generated on Wed, 22 Jul 2015 15:36:20 +0930 by [PHP_CodeSniffer 2.3.3](https://github.com/squizlabs/PHP_CodeSniffer)

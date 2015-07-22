@@ -54,6 +54,12 @@ class JoulePluginCheck_Sniffs_Style_WarnClassesNonamespaceSniff
      */
     private $_usedClasses = array();
 
+    /**
+     * Keep track of the files that have been processed
+     *
+     * @var $_files
+     */
+    private $_files = array();
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -82,6 +88,16 @@ class JoulePluginCheck_Sniffs_Style_WarnClassesNonamespaceSniff
      */
     public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
     {
+        // Keep track of files, so we know when to reset variables.
+        $filename = md5($phpcsFile->getFilename());
+
+        if (isset($this->_files[$filename]) === false) {
+            // Reset tracking variables.
+            $this->_namespaceFlag = false;
+            $this->_usedClasses = array();
+            $this->_files[$filename] = true;
+        }
+
         $tokens = $phpcsFile->getTokens();
 
         // Process namespaces and classes construction differently.

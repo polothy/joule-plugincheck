@@ -8,4 +8,5 @@
     <rule ref="Generic.PHP.NoSilencedErrors"/>
     <rule ref="Squiz.PHP.DiscouragedFunctions"/>
     <rule ref="Squiz.PHP.Eval"/>
+    <rule ref="Zend.Files.ClosingTag"/>
 </ruleset>

@@ -42,21 +42,11 @@ class JoulePluginCheck_Sniffs_Style_DisallowMultipleNamespacesSniff
     implements PHP_CodeSniffer_Sniff
 {
     /**
-     * Keep track of the files that have been process
+     * Keep track of the files that have been processed
      *
      * @var $_files
      */
-    private $_files;
-
-
-    /**
-     * Constructor for this class
-     */
-    public function __construct()
-    {
-        $this->_files = array();
-
-    }//end __construct()
+    private $_files = array();
 
 
     /**
