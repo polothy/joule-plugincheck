@@ -61,6 +61,7 @@ class JoulePluginCheck_Sniffs_Style_WarnClassesNonamespaceSniff
      */
     private $_files = array();
 
+
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -93,8 +94,8 @@ class JoulePluginCheck_Sniffs_Style_WarnClassesNonamespaceSniff
 
         if (isset($this->_files[$filename]) === false) {
             // Reset tracking variables.
-            $this->_namespaceFlag = false;
-            $this->_usedClasses = array();
+            $this->_namespaceFlag    = false;
+            $this->_usedClasses      = array();
             $this->_files[$filename] = true;
         }
 
