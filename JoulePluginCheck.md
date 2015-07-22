@@ -34,10 +34,18 @@ Moodle comes with its own classes for accessing resources via cURL. These should
     to be implemented in one place only. For example limiting timeouts to meet page generation time (PGT) goals, or accessing resources via proxy servers.
 ## Disallow Deprecated Moodle Functions
 Moodle functions that are deprecated produce warnings. These warnings provide a poor user experience, and spam logs.
-    Therefore any deprecated functions must be replaced with their updated alternatives.
+Therefore any deprecated functions must be replaced with their updated alternatives.
+
+The list of deprecated functions can be found in the `data/mdl-deprecated-functions.json` file. This file can be updated
+using the `bin/MdlDeprecated.php` script.
 ## Disallow Filesystem Related Moodle Functions
 In a multi-node environment Moodle plugin code cannot create a temporary file, and expect it to be avaiable on a subsequent request.
     Code using these Moodle functions be checked to ensure that temporary file creation is limited, and is only used in servicing the current request.
+## Disallow Risky PHP Functions
+Many PHP functions can be misused. The intention of this sniff is to identify the use of these functions so that,
+they can be examined further.
+
+The list of risky functions is stored in the `data/php-risky-exec-functions.json` file.
 ## Warn About the Use of Paths
 Code that access files in the {{$CFG-&gt;dataroot}} and {{$CFG-&gt;tempdir}} directories must be checked to ensure it is not
     creating or accessing files that it should not. Additionally the code should not be creating files and expecting them to
@@ -170,4 +178,4 @@ Files should not have closing php tags.
 </td>
    </tr>
   </table>
-Documentation generated on Wed, 22 Jul 2015 15:36:20 +0930 by [PHP_CodeSniffer 2.3.3](https://github.com/squizlabs/PHP_CodeSniffer)
+Documentation generated on Wed, 22 Jul 2015 17:36:33 +0930 by [PHP_CodeSniffer 2.3.3](https://github.com/squizlabs/PHP_CodeSniffer)
